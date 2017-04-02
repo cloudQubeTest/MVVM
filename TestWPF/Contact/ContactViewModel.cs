@@ -7,19 +7,25 @@ namespace PatientMVVM.ViewModels
 {
     public class ContactViewModel : ObservableObject
     {
-        private string _someText;
+        private string _someText = TestData.Data;
 
         public string SomeText
         {
             get { return _someText; }
-            set
-            {
-                _someText = value;
-                RaisePropertyChangedEvent("SomeText");
-            }
+
         }
 
+        public ICommand ClickCommand
+        {
+            get { return new DelegateCommand(ConvertText); }
+        }
 
+        private void ConvertText()
+        {
+            //if (string.IsNullOrWhiteSpace(SomeText)) return;
+            //AddToHistory(_textConverter.ConvertText(SomeText));
+            //SomeText = string.Empty;
+        }
 
 
     }

@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PatientMVVM.ViewModels;
 
-namespace TestWPF.Contact
+namespace PatientMVVM.Contact
 {
     /// <summary>
     /// Interaction logic for ContactView.xaml

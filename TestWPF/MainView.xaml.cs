@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TestWPF
+namespace PatientMVVM
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -22,6 +22,7 @@ namespace TestWPF
     {
         public MainView()
         {
+            DataContext = new PatientMVVM.ViewModels.MainViewModel();
             InitializeComponent();
         }
     }

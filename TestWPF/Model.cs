@@ -2,18 +2,18 @@
 
 namespace PatientMVVM.Models
 {
-    public class TextConverter
+    public class TestData
     {
-        private readonly Func<string, string> _convertion;
+        static private string _data = "data binding";
 
-        public TextConverter(Func<string, string> convertion)
+        static public string Data
         {
-            _convertion = convertion;
-        }
-
-        public string ConvertText(string inputText)
-        {
-            return _convertion(inputText);
+            get { return _data; }
+            set
+            {
+                _data = value;
+            }
         }
     }
+ 
 }

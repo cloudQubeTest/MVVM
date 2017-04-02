@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TestWPF.Meds
+namespace PatientMVVM.Meds
 {
     /// <summary>
     /// Interaction logic for MedsView.xaml

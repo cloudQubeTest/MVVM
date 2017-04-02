@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TestWPF.Properties {
+namespace PatientMVVM.Properties {
     using System;
     
     

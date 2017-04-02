@@ -65,6 +65,7 @@
     </Compile>
     <Compile Include="Model.cs" />
     <Compile Include="ObservableObject.cs" />
+    <Compile Include="PatientModel.cs" />
     <Compile Include="Risks\RisksView.xaml.cs">
       <DependentUpon>RisksView.xaml</DependentUpon>
     </Compile>
