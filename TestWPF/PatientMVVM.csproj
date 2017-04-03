@@ -57,6 +57,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Class1.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="DelegateCommands.cs" />
     <Compile Include="Contact\ContactViewModel.cs" />

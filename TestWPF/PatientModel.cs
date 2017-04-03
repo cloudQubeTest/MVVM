@@ -33,6 +33,19 @@ namespace PatientMVVM.PatientModel
                 _lastName = value;
             }
         }
+        private int _age;
+        public int Age
+        {
+            get
+            {
+                return _age;
+            }
+            set
+            {
+                _age = value;
+            }
+        }
+
     }
 
 }

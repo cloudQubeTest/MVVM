@@ -22,8 +22,8 @@ namespace PatientMVVM
     {
         public MainView()
         {
-            DataContext = new PatientMVVM.ViewModels.MainViewModel();
             InitializeComponent();
+            DataContext = new PatientMVVM.ViewModels.MainViewModel();
         }
     }
 }

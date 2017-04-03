@@ -27,6 +27,11 @@ namespace PatientMVVM.ViewModels
             //SomeText = string.Empty;
         }
 
+        //public ContactViewModel()
+        //{
+
+        //}
+
 
     }
 }

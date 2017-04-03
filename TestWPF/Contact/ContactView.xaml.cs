@@ -23,8 +23,8 @@ namespace PatientMVVM.Contact
     {
         public ContactView()
         {
-            DataContext = new PatientMVVM.ViewModels.ContactViewModel();
             InitializeComponent();
+            DataContext = new PatientMVVM.ViewModels.ContactViewModel();
         }
     }
 }
