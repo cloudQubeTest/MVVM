@@ -1,12 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+//using PatientsDataModel;
 //using PatientMVVM;
 
 namespace PatientMVVM
 {
     public class MainViewModel : ObservableObject
     {
+        //private readonly ConnectedRepository _repo = new ConnectedRepository();
 
         Patient John1 = new Patient();
         Patient John2 = new Patient();

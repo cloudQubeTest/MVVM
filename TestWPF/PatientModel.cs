@@ -8,6 +8,18 @@ namespace PatientMVVM
 {
     public class Patient
     {
+        private int _id;
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                _id = value;
+            }
+        }
         private string _firstName;
         public string FirstName
         {
