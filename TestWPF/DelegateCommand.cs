@@ -1,7 +1,23 @@
-﻿using System;
+﻿//using System;
+//using System.Windows.Input;
+
+//namespace PatientMVVM
+//{
+//    internal class DelegateCommand : ICommand
+//    {
+//        private Action convertText;
+
+//        public DelegateCommand(Action convertText)
+//        {
+//            this.convertText = convertText;
+//        }
+//    }
+//}
+
+using System;
 using System.Windows.Input;
 
-namespace PatientMVVM.ViewModels
+namespace PatientMVVM
 {
     public class DelegateCommand : ICommand
     {

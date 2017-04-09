@@ -7,8 +7,12 @@
              x:Class="PatientMVVM.Contact.ContactView"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Width="Auto" Height="Auto">
+
+
     <Grid Background="Yellow">
         <!--<Button x:Name="button" Content="Button" Margin="75.758,106.061,63.636,121.212" Background="Red"/>-->
         <Button x:Name="button" Content="{Binding SomeText}" Margin="75.028,107.521,64.366,119.752" Background="Red" Command="{Binding ClickCommand}"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="24.569" Margin="27.155,51.724,0,0" TextWrapping="Wrap" Text="{Binding SelectedPatient.FirstName}" VerticalAlignment="Top" Width="81.466"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Right" Height="24.569" Margin="0,51.724,64.366,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="84.341"/>
     </Grid>
 </UserControl>

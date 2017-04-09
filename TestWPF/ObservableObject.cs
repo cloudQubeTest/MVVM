@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace PatientMVVM.ViewModels
+namespace PatientMVVM
 {
     public class ObservableObject : INotifyPropertyChanged
     {
@@ -14,3 +14,4 @@ namespace PatientMVVM.ViewModels
         }
     }
 }
+

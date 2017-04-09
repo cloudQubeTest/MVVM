@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PatientMVVM.Models
+namespace PatientMVVM
 {
     public class TestData
     {
@@ -15,5 +15,5 @@ namespace PatientMVVM.Models
             }
         }
     }
- 
+
 }

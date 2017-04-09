@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using PatientMVVM.ViewModels;
+using PatientMVVM;
 
 namespace PatientMVVM.Contact
 {
@@ -23,8 +23,8 @@ namespace PatientMVVM.Contact
     {
         public ContactView()
         {
+            //DataContext = new PatientMVVM.ContactViewModel();
             InitializeComponent();
-            DataContext = new PatientMVVM.ViewModels.ContactViewModel();
         }
     }
 }
