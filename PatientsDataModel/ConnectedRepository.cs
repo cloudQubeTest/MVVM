@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
-using PatientMVVM;
+using PatientsDataModel;
 
 namespace PatientsDataModel
 {
@@ -43,5 +43,13 @@ namespace PatientsDataModel
             _context.Patients.Add(patient);
             return patient;
         }
+#if true
+  /// <summary>
+  /// Quick way to initialize and seed the database on first use.
+  /// </summary>
+    public ConnectedRepository() {
+      DataHelpers.NewDbWithSeed();
+    }
+#endif
     }
 }

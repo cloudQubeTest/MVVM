@@ -1,5 +1,5 @@
 ﻿using System.Data.Entity;
-using PatientMVVM;
+using PatientsDataModel;
 
 
 namespace PatientsDataModel

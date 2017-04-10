@@ -13,7 +13,7 @@ namespace PatientsDataModel.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201704092050472_Initial"; }
+            get { return "201704100008306_Initial"; }
         }
         
         string IMigrationMetadata.Source

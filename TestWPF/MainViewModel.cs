@@ -1,18 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-//using PatientsDataModel;
+using PatientsDataModel;
 //using PatientMVVM;
 
 namespace PatientMVVM
 {
     public class MainViewModel : ObservableObject
     {
-        //private readonly ConnectedRepository _repo = new ConnectedRepository();
+        private readonly ConnectedRepository _repo = new ConnectedRepository();
 
-        Patient John1 = new Patient();
-        Patient John2 = new Patient();
-        List<Patient> testData = new List<Patient>();
+        //Patient John1 = new Patient();
+        //Patient John2 = new Patient();
+        List<Patient> testData;
 
         private ObservableCollection<Patient> _patients;
 
@@ -141,15 +141,15 @@ namespace PatientMVVM
 
         public MainViewModel()
         {
-            
-            John1.FirstName = "John";
-            John1.LastName = "Doe";
-            John1.Age = 35;
-            John2.FirstName = "Jim";
-            John2.LastName = "Dale";
-            John2.Age = 56;
-            testData.Add(John1);
-            testData.Add(John2);
+            testData = new List<Patient>(_repo.GetPatients());
+            //John1.FirstName = "John";
+            //John1.LastName = "Doe";
+            //John1.Age = 35;
+            //John2.FirstName = "Jim";
+            //John2.LastName = "Dale";
+            //John2.Age = 56;
+            //testData.Add(John1);
+            //testData.Add(John2);
             _selectedPatient = testData[0];
             ContactTab = new ContactViewModel(_selectedPatient);
             Patients = new ObservableCollection<Patient>(testData);

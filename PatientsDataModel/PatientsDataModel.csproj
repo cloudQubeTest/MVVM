@@ -50,12 +50,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectedRepository.cs" />
-    <Compile Include="Migrations\201704092050472_Initial.cs" />
-    <Compile Include="Migrations\201704092050472_Initial.Designer.cs">
-      <DependentUpon>201704092050472_Initial.cs</DependentUpon>
+    <Compile Include="DataHelpers.cs" />
+    <Compile Include="Migrations\201704100008306_Initial.cs" />
+    <Compile Include="Migrations\201704100008306_Initial.Designer.cs">
+      <DependentUpon>201704100008306_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PatientContext.cs" />
+    <Compile Include="PatientModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,14 +65,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TestWPF\TestWFP.csproj">
-      <Project>{ede4b1dd-8f24-494b-986c-ae5ab6902cc1}</Project>
-      <Name>TestWFP</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201704092050472_Initial.resx">
-      <DependentUpon>201704092050472_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704100008306_Initial.resx">
+      <DependentUpon>201704100008306_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
