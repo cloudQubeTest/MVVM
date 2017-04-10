@@ -139,6 +139,16 @@ namespace PatientMVVM
         //    }
         //}
 
+        public ICommand SaveClickCommand
+        {
+            get { return new DelegateCommand(SaveClick); }
+        }
+
+        private void SaveClick()
+        {
+            _repo.Save();
+        }
+
         public MainViewModel()
         {
             testData = new List<Patient>(_repo.GetPatients());
