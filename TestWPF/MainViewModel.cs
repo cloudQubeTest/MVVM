@@ -149,6 +149,19 @@ namespace PatientMVVM
             _repo.Save();
         }
 
+        private void NewClick()
+        {
+            SelectedPatient = _repo.NewPatient();
+            Patients.Add(SelectedPatient);
+            SelectedIndex = (Patients.Count - 1);
+        }
+
+        public ICommand NewClickCommand
+        {
+            get { return new DelegateCommand(NewClick); }
+        }
+
+
         public MainViewModel()
         {
             testData = new List<Patient>(_repo.GetPatients());
