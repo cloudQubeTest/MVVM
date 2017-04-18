@@ -6,6 +6,7 @@
         xmlns:meds="clr-namespace:PatientMVVM.Meds"
         xmlns:contact="clr-namespace:PatientMVVM.Contact"
         xmlns:risks="clr-namespace:PatientMVVM.Risks"
+        xmlns:image="clr-namespace:PatientMVVM.Image"
         xmlns:local="clr-namespace:PatientMVVM"
         mc:Ignorable="d"
         Title="MainView" Height="350" Width="525">
@@ -31,7 +32,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Rectangle Grid.Column="1" Fill="#FFF4F4F5" Stroke="Black"/>
-        <TabControl x:Name="tabControl" Grid.Column="1" Grid.Row="1">
+        <TabControl x:Name="tabControl" Grid.Column="1" Grid.Row="1" Background="#FF91B62E">
             <TabItem x:Name="Contact" Header="_Contact Info">
                 <contact:ContactView DataContext="{Binding ContactTab, Mode=TwoWay}"/>
             </TabItem>
@@ -41,6 +42,9 @@
             </TabItem>
             <TabItem x:Name="Risk" Header="_Risk Factors">
                 <risks:RisksView/>
+            </TabItem>
+            <TabItem x:Name="Image" Header="_Image">
+              
             </TabItem>
         </TabControl>
         <TextBox x:Name="textBox" Grid.Column="1" HorizontalAlignment="Left" Height="17" Margin="33.6,22,0,0" TextWrapping="Wrap" Text="{Binding SelectedPatient.FirstName}" VerticalAlignment="Top" Width="84"/>

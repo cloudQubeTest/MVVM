@@ -2,6 +2,8 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using PatientsDataModel;
+using System.Windows.Media.Imaging;
+
 //using PatientMVVM;
 
 namespace PatientMVVM
