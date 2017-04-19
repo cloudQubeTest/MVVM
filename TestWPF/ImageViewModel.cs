@@ -4,10 +4,11 @@ using System.Drawing;
 using System.Windows.Media.Imaging;
 using System.Windows;
 using PatientsDataModel;
+using System.IO;
 
 namespace PatientMVVM
 {
-    public static class BitmapConversion
+    public static class ImageConversion
     {
         public static BitmapSource BitmapToBitmapSource(Bitmap source)
         {
@@ -16,6 +17,13 @@ namespace PatientMVVM
                           IntPtr.Zero,
                           Int32Rect.Empty,
                           BitmapSizeOptions.FromEmptyOptions());
+        }
+
+        public static System.Drawing.Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            MemoryStream ms = new MemoryStream(byteArrayIn);
+            System.Drawing.Image returnImage = System.Drawing.Image.FromStream(ms);
+            return returnImage;
         }
     }
     public class ImageViewModel : ObservableObject
@@ -43,10 +51,10 @@ namespace PatientMVVM
         public ImageViewModel(Patient selectedPatient)
         {
             _selectedPatient = selectedPatient;
-            Bitmap bitmap = (Bitmap)Bitmap.FromFile(@"C:\Users\Colin\Documents\Projects\TestWPF\Test.png", true);
-            _bitmapSource = BitmapConversion.BitmapToBitmapSource(bitmap);
+            Bitmap bitmap = new Bitmap(ImageConversion.byteArrayToImage(SelectedPatient.Image));
+            _bitmapSource = ImageConversion.BitmapToBitmapSource(bitmap);
         }
-
+        //TODO: Remove lines 54 and 55 and place into own method to see if pictures will change
         public BitmapSource ImageSource
         {
             get { return _bitmapSource; }
