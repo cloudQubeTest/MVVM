@@ -43,7 +43,7 @@ namespace PatientsDataModel
             _context.Patients.Add(patient);
             return patient;
         }
-#if false
+#if true
   /// <summary>
   /// Quick way to initialize and seed the database on first use.
   /// </summary>

@@ -21,6 +21,9 @@ namespace PatientMVVM
         public ContactViewModel ContactTab
         { get; set; }
 
+        public ImageViewModel ImageTab
+        { get; set; }
+
         private int _selectedIndex;
         public int SelectedIndex
         {
@@ -177,6 +180,7 @@ namespace PatientMVVM
             //testData.Add(John2);
             _selectedPatient = testData[0];
             ContactTab = new ContactViewModel(_selectedPatient);
+            ImageTab = new ImageViewModel(_selectedPatient);
             Patients = new ObservableCollection<Patient>(testData);
         }
     }

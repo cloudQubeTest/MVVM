@@ -142,12 +142,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Test.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PatientsDataModel\PatientsDataModel.csproj">
       <Project>{f2e60b01-2467-4094-b8f1-09d174f28470}</Project>
       <Name>PatientsDataModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Test2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

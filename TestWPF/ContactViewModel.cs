@@ -99,13 +99,13 @@ namespace PatientMVVM
         //    }
         //}
 
-        //private string _someText = TestData.Data;
+        private string _someText = "Some Text";
 
-        //public string SomeText
-        //{
-        //    get { return _someText; }
+        public string SomeText
+        {
+            get { return _someText; }
 
-        //}
+        }
 
         public ICommand ClickCommand
         {

@@ -32,7 +32,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Rectangle Grid.Column="1" Fill="#FFF4F4F5" Stroke="Black"/>
-        <TabControl x:Name="tabControl" Grid.Column="1" Grid.Row="1" Background="#FF91B62E">
+        <TabControl x:Name="tabControl" Grid.Column="1" Grid.Row="1">
             <TabItem x:Name="Contact" Header="_Contact Info">
                 <contact:ContactView DataContext="{Binding ContactTab, Mode=TwoWay}"/>
             </TabItem>
@@ -44,7 +44,7 @@
                 <risks:RisksView/>
             </TabItem>
             <TabItem x:Name="Image" Header="_Image">
-              
+                <image:ImageView DataContext="{Binding ImageTab, Mode=TwoWay}"/>
             </TabItem>
         </TabControl>
         <TextBox x:Name="textBox" Grid.Column="1" HorizontalAlignment="Left" Height="17" Margin="33.6,22,0,0" TextWrapping="Wrap" Text="{Binding SelectedPatient.FirstName}" VerticalAlignment="Top" Width="84"/>

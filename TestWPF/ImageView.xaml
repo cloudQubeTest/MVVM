@@ -1,20 +1,15 @@
-﻿<UserControl x:Class="PatientMVVM.Image.ImageView"
+﻿<UserControl 
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PatientMVVM.Image"
+             x:Class="PatientMVVM.Image.ImageView"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <Image
-            HorizontalAlignment="Left"
-            Height="100"
-            Margin="10,10,0,0"
-            VerticalAlignment="Top"
-            Width="100"
-                >
-        
+    <Grid Background="Aquamarine">
+        <Image Source="{Binding ImageSource}">
         </Image>
-    </Grid>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23.275" Margin="38.793,69.828,0,0" TextWrapping="Wrap" Text="{Binding SomeText, Mode=OneWay}" VerticalAlignment="Top" Width="84.052"/>
+    </Grid> 
 </UserControl>

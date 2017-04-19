@@ -58,6 +58,20 @@ namespace PatientsDataModel
             }
         }
 
+        private byte[] _image;
+
+        public byte[] Image
+        {
+            get
+            {
+                return _image;
+            }
+            set
+            {
+                _image = value;
+            }
+        }
+
 
     }
 

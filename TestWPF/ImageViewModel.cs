@@ -1,29 +1,61 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing.Imaging;
+using System.Drawing;
 using System.Windows.Media.Imaging;
+using System.Windows;
 using PatientsDataModel;
-using System.Windows.Input;
 
 namespace PatientMVVM
 {
-    class ImageViewModel : ObservableObject
+    public static class BitmapConversion
     {
-        public BitmapImage Image_Loaded()
+        public static BitmapSource BitmapToBitmapSource(Bitmap source)
         {
-            // ... Create a new BitmapImage.
-            BitmapImage b = new BitmapImage();
-            b.BeginInit();
-            b.UriSource = new Uri("C:\\Users\\Colin\\Documents\\Projects\\TestWPF\\Test.png");
-            b.EndInit();
+            return System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(
+                          source.GetHbitmap(),
+                          IntPtr.Zero,
+                          Int32Rect.Empty,
+                          BitmapSizeOptions.FromEmptyOptions());
+        }
+    }
+    public class ImageViewModel : ObservableObject
+    {
+        
+        private Patient _selectedPatient;
 
-            return b;
-       
+        public Patient SelectedPatient
+        {
+            get
+            {
+                return _selectedPatient;
+            }
+            set
+            {
+                _selectedPatient = value;
+
+
+                RaisePropertyChangedEvent("SelectedPatient");
+            }
         }
 
-      
+        private BitmapSource _bitmapSource;
+
+        public ImageViewModel(Patient selectedPatient)
+        {
+            _selectedPatient = selectedPatient;
+            Bitmap bitmap = (Bitmap)Bitmap.FromFile(@"C:\Users\Colin\Documents\Projects\TestWPF\Test.png", true);
+            _bitmapSource = BitmapConversion.BitmapToBitmapSource(bitmap);
+        }
+
+        public BitmapSource ImageSource
+        {
+            get { return _bitmapSource; }
+        }
+
+        //public string DisplayedImage
+        //{
+        //    get { return @"C:\Users\Colin\Documents\Projects\TestWPF\TestWPF\Test.png"; }
+        //}
 
     }
 }
