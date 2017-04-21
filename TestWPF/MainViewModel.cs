@@ -37,6 +37,8 @@ namespace PatientMVVM
                 SelectedPatient = Patients[value];
                 ContactTab.SelectedPatient = Patients[value];
                 ImageTab.SelectedPatient = Patients[value];
+                //ImageTab = new ImageViewModel(SelectedPatient);
+                
                 RaisePropertyChangedEvent("SelectedIndex");
             }
         }

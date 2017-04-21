@@ -40,9 +40,9 @@ namespace PatientMVVM
             set
             {
                 _selectedPatient = value;
-
-
+                updateImage();
                 RaisePropertyChangedEvent("SelectedPatient");
+                
             }
         }
 
@@ -50,20 +50,38 @@ namespace PatientMVVM
 
         public ImageViewModel(Patient selectedPatient)
         {
-            _selectedPatient = selectedPatient;
+           _selectedPatient = selectedPatient;
             Bitmap bitmap = new Bitmap(ImageConversion.byteArrayToImage(SelectedPatient.Image));
-            _bitmapSource = ImageConversion.BitmapToBitmapSource(bitmap);
+            ImageSource = ImageConversion.BitmapToBitmapSource(bitmap);
         }
         //TODO: Remove lines 54 and 55 and place into own method to see if pictures will change
+
+  
         public BitmapSource ImageSource
         {
-            get { return _bitmapSource; }
+            get
+            {
+                return _bitmapSource;
+            }
+            set
+            {
+                _bitmapSource = value;
+                RaisePropertyChangedEvent("ImageSource");
+            }
         }
+
+        //TODO: make private and use InotifyPropertyChanged
 
         //public string DisplayedImage
         //{
         //    get { return @"C:\Users\Colin\Documents\Projects\TestWPF\TestWPF\Test.png"; }
         //}
+
+        public void updateImage()
+        {
+            Bitmap bitmap = new Bitmap(ImageConversion.byteArrayToImage(SelectedPatient.Image));
+            ImageSource = ImageConversion.BitmapToBitmapSource(bitmap);
+        }
 
     }
 }

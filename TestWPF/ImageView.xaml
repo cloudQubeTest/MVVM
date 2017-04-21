@@ -10,6 +10,6 @@
     <Grid Background="Aquamarine">
         <Image Source="{Binding ImageSource}">
         </Image>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23.275" Margin="38.793,69.828,0,0" TextWrapping="Wrap" Text="{Binding SomeText, Mode=OneWay}" VerticalAlignment="Top" Width="84.052"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23.275" Margin="38.793,69.828,0,0" TextWrapping="Wrap" Text="{Binding SelectedPatient.LastName}" VerticalAlignment="Top" Width="84.052"/>
     </Grid> 
 </UserControl>
