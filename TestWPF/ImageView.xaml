@@ -11,5 +11,7 @@
         <Image Source="{Binding ImageSource}">
         </Image>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23.275" Margin="38.793,69.828,0,0" TextWrapping="Wrap" Text="{Binding SelectedPatient.LastName}" VerticalAlignment="Top" Width="84.052"/>
-    </Grid> 
+        <Button x:Name="Add" Content="Add" HorizontalAlignment="Right" Height="21.983" Margin="0,25.862,32.328,0" VerticalAlignment="Top" Width="58.362" Command="{Binding AddClickCommand}"/>
+        <Button x:Name="grayscale" Content="To Grayscale" HorizontalAlignment="Right" Height="23.448" Margin="0,52.845,32.328,0" VerticalAlignment="Top" Width="58.362" Command="{Binding GrayscaleClickCommand}"/>
+    </Grid>
 </UserControl>
