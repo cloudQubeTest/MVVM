@@ -144,8 +144,9 @@ namespace PatientMVVM
         {
             //Bitmap bpm = new Bitmap(ImageConversion.BitmapSourceToBitmap(_bitmapSource));
             FormatConvertedBitmap grayscaleBpm = new FormatConvertedBitmap(_bitmapSource, PixelFormats.Gray8, BitmapPalettes.Gray256, 0.0);
+            Bitmap editBpm = new Bitmap(ImageConversion.BitmapSourceToBitmap(grayscaleBpm));
             ImageSource = grayscaleBpm;
-            //SelectedPatient.Image = ImageConversion.imageToByteArray(ImageConversion.BitmapSourceToBitmap(ImageSource));
+            SelectedPatient.Image = ImageConversion.imageToByteArray(editBpm);
 
         }
 
