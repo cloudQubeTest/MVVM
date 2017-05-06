@@ -101,11 +101,16 @@ namespace PatientMVVM
 
         public void updateImage()
         {
+            Bitmap bitmap;
             if (SelectedPatient.Image != null)
             {
-                Bitmap bitmap = new Bitmap(ImageConversion.byteArrayToImage(SelectedPatient.Image));
-                ImageSource = ImageConversion.BitmapToBitmapSource(bitmap);
+                bitmap = new Bitmap(ImageConversion.byteArrayToImage(SelectedPatient.Image));
             }
+            else
+            {
+                bitmap = new Bitmap(@"C:\Users\Colin\Documents\Projects\TestWPF\TestWPF\blank.png");
+            }
+            ImageSource = ImageConversion.BitmapToBitmapSource(bitmap);
         }
 
         private string getFilePath()
@@ -142,11 +147,14 @@ namespace PatientMVVM
 
         private void GrayscaleClick()
         {
-            //Bitmap bpm = new Bitmap(ImageConversion.BitmapSourceToBitmap(_bitmapSource));
-            FormatConvertedBitmap grayscaleBpm = new FormatConvertedBitmap(_bitmapSource, PixelFormats.Gray8, BitmapPalettes.Gray256, 0.0);
-            Bitmap editBpm = new Bitmap(ImageConversion.BitmapSourceToBitmap(grayscaleBpm));
-            ImageSource = grayscaleBpm;
-            SelectedPatient.Image = ImageConversion.imageToByteArray(editBpm);
+            if (SelectedPatient.Image != null)
+            {
+                //Bitmap bpm = new Bitmap(ImageConversion.BitmapSourceToBitmap(_bitmapSource));
+                FormatConvertedBitmap grayscaleBpm = new FormatConvertedBitmap(_bitmapSource, PixelFormats.Gray8, BitmapPalettes.Gray256, 0.0);
+                Bitmap editBpm = new Bitmap(ImageConversion.BitmapSourceToBitmap(grayscaleBpm));
+                ImageSource = grayscaleBpm;
+                SelectedPatient.Image = ImageConversion.imageToByteArray(editBpm);
+            }
 
         }
 
@@ -154,6 +162,11 @@ namespace PatientMVVM
         {
             get { return new DelegateCommand(GrayscaleClick); }
         }
+
+        //private WriteableBitmap ChangeBrightness(WriteableBitmap source, byte change_value)
+        //{
+
+        //}
 
     }
 }
