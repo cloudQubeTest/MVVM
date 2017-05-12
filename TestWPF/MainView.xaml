@@ -41,7 +41,7 @@
                 <!--<Grid Background="#FFE5E5E5"/>-->
             </TabItem>
             <TabItem x:Name="Risk" Header="_Risk Factors">
-                <risks:RisksView/>
+                <risks:RisksView DataContext="{Binding RiskTab, Mode=TwoWay}"/>
             </TabItem>
             <TabItem x:Name="Image" Header="_Image">
                 <image:ImageView DataContext="{Binding ImageTab, Mode=TwoWay}"/>

@@ -84,6 +84,7 @@
     <Compile Include="RisksView.xaml.cs">
       <DependentUpon>RisksView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RiskViewModel.cs" />
     <None Include="DelegateCommands.cs" />
     <Page Include="ContactView.xaml">
       <SubType>Designer</SubType>

@@ -170,6 +170,20 @@ namespace PatientsDataModel
             }
         }
 
+        private bool _sedentaty;
+
+        public bool Sedentary
+        {
+            get
+            {
+                return _sedentaty;
+            }
+            set
+            {
+                _sedentaty = value;
+            }
+        }
+
         private byte[] _image;
 
         public byte[] Image

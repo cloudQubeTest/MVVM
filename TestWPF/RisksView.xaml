@@ -13,6 +13,6 @@
         <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Height="26.844" Margin="28.103,0,0,133.673" TextWrapping="Wrap" Text="HDL Cholesterol" VerticalAlignment="Bottom" Width="96.983"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="125.086,149.018,0,165.517" TextWrapping="Wrap" Text="TextBox" Width="124.483"/>
         <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="26.844" Margin="125.086,0,0,133.673" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Bottom" Width="124.483"/>
-        <CheckBox x:Name="checkBox_Copy1" Content="Sedentary" HorizontalAlignment="Left" Height="25.863" Margin="28.103,56.429,0,0" VerticalAlignment="Top" Width="85.345"/>
+        <CheckBox x:Name="checkBox_Copy1" Content="Sedentary" HorizontalAlignment="Left" Height="25.863" Margin="28.103,56.429,0,0" VerticalAlignment="Top" Width="85.345" IsChecked="{Binding SelectedPatient.Sedentary}"/>
     </Grid>
 </UserControl>

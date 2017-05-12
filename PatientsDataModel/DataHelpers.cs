@@ -50,6 +50,7 @@ namespace PatientsDataModel
                     Country = "United States",
                     Phone = "555-235-1291",
                     Email = "j.white@example.com",
+                    Sedentary = true,
                     Image = byteImg2
                  
                 };
@@ -65,6 +66,7 @@ namespace PatientsDataModel
                     Country = "United States",
                     Phone = "555-432-8921",
                     Email = "sara123@example.com",
+                    Sedentary = false,
                     Image = byteImg1
 
                 };
@@ -81,6 +83,7 @@ namespace PatientsDataModel
                     Phone = "555-111-8080",
                     Email = "dongreen@fake.net",
                     Age = 10,
+                    Sedentary = true,
                     Image = byteImg1
                 };
                 var d = new Patient
@@ -95,6 +98,7 @@ namespace PatientsDataModel
                     Phone = "555-603-0921",
                     Email = "sallyb@notreal.org",
                     Age = 78,
+                    Sedentary = false,
                     Image = byteImg2
                 };
                 context.Patients.AddRange(new List<Patient> { a, b, c, d });
