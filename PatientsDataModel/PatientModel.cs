@@ -58,6 +58,118 @@ namespace PatientsDataModel
             }
         }
 
+        private string _addressLineOne;
+
+        public string AddressLineOne
+        {
+            get
+            {
+                return _addressLineOne;
+            }
+            set
+            {
+                _addressLineOne = value;
+            }
+        }
+
+        private string _addressLineTwo;
+
+        public string AddressLineTwo
+        {
+            get
+            {
+                return _addressLineTwo;
+            }
+            set
+            {
+                _addressLineTwo = value;
+            }
+        }
+
+        private string _city;
+
+        public string City
+        {
+            get
+            {
+                return _city;
+            }
+            set
+            {
+                _city = value;
+            }
+        }
+
+        private string _state;
+
+        public string State
+        {
+            get
+            {
+                return _state;
+            }
+            set
+            {
+                _state = value;
+            }
+        }
+
+        private string _postalCode;
+
+        public string PostalCode
+        {
+            get
+            {
+                return _postalCode;
+            }
+            set
+            {
+                _postalCode = value;
+            }
+        }
+
+        private string _country;
+
+        public string Country
+        {
+            get
+            {
+                return _country;
+            }
+            set
+            {
+                _country = value;
+            }
+        }
+
+        private string _phone;
+
+        public string Phone
+        {
+            get
+            {
+                return _phone;
+            }
+            set
+            {
+                _phone = value;
+            }
+        }
+
+        private string _email;
+
+        public string Email
+        {
+            get
+            {
+                return _email;
+            }
+            set
+            {
+                _email = value;
+            }
+        }
+
         private byte[] _image;
 
         public byte[] Image

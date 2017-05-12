@@ -20,8 +20,8 @@ namespace PatientsDataModel
             return ms.ToArray();
         }
 
-        public static Image testImg1 = Image.FromFile(@"C:\Users\Colin\Documents\Projects\TestWPF\TestWPF\Test.png");
-        public static Image testImg2 = Image.FromFile(@"C:\Users\Colin\Documents\Projects\TestWPF\TestWPF\Test2.png");
+        public static Image testImg1 = Image.FromFile(@"../../Test.png");
+        public static Image testImg2 = Image.FromFile(@"../../Test2.png");
 
         public static byte[] byteImg1 = imageToByteArray(testImg1);
         public static byte[] byteImg2 = imageToByteArray(testImg2);
@@ -42,6 +42,14 @@ namespace PatientsDataModel
                     FirstName = "Joe",
                     LastName = "White",
                     Age = 35,
+                    AddressLineOne = "786 N 15th ST",
+                    AddressLineTwo = "App. 407",
+                    City = "Redmond",
+                    State = "Washington",
+                    PostalCode = "98765",
+                    Country = "United States",
+                    Phone = "555-235-1291",
+                    Email = "j.white@example.com",
                     Image = byteImg2
                  
                 };
@@ -50,6 +58,13 @@ namespace PatientsDataModel
                     FirstName = "Sara",
                     LastName = "Grey",
                     Age = 42,
+                    AddressLineOne = "4112 23rd Ave",
+                    City = "Seattle",
+                    State = "Washington",
+                    PostalCode = "98122",
+                    Country = "United States",
+                    Phone = "555-432-8921",
+                    Email = "sara123@example.com",
                     Image = byteImg1
 
                 };
@@ -57,6 +72,14 @@ namespace PatientsDataModel
                 {
                     FirstName = "Don",
                     LastName = "Green",
+                    AddressLineOne = "567 NE 4th ST",
+                    AddressLineTwo = "Summerview Apparment 304",
+                    City = "Portland",
+                    State = "Oregon",
+                    PostalCode = "89771",
+                    Country = "United States",
+                    Phone = "555-111-8080",
+                    Email = "dongreen@fake.net",
                     Age = 10,
                     Image = byteImg1
                 };
@@ -64,6 +87,13 @@ namespace PatientsDataModel
                 {
                     FirstName = "Sally",
                     LastName = "Black",
+                    AddressLineOne = "222 22nd Ave",
+                    City = "New York City",
+                    State = "New York",
+                    PostalCode = "45331",
+                    Country = "United States",
+                    Phone = "555-603-0921",
+                    Email = "sallyb@notreal.org",
                     Age = 78,
                     Image = byteImg2
                 };

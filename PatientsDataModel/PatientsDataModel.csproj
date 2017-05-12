@@ -60,6 +60,10 @@
     <Compile Include="Migrations\201704190650346_added image.Designer.cs">
       <DependentUpon>201704190650346_added image.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705070058248_added contact info.cs" />
+    <Compile Include="Migrations\201705070058248_added contact info.Designer.cs">
+      <DependentUpon>201705070058248_added contact info.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PatientContext.cs" />
     <Compile Include="PatientModel.cs" />
@@ -75,6 +79,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704190650346_added image.resx">
       <DependentUpon>201704190650346_added image.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705070058248_added contact info.resx">
+      <DependentUpon>201705070058248_added contact info.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

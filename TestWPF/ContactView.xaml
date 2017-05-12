@@ -5,14 +5,26 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PatientMVVM.Contact"
              x:Class="PatientMVVM.Contact.ContactView"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" Width="Auto" Height="Auto">
+             mc:Ignorable="d" Width="627.155" Height="341.379">
 
 
-    <Grid Background="Yellow">
+    <Grid>
         <!--<Button x:Name="button" Content="Button" Margin="75.758,106.061,63.636,121.212" Background="Red"/>-->
-        <Button x:Name="button" Content="{Binding SomeText}" Margin="75.028,107.521,64.366,119.752" Background="Red" Command="{Binding ClickCommand}"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="24.569" Margin="27.155,51.724,0,0" TextWrapping="Wrap" Text="{Binding SelectedPatient.FirstName}" VerticalAlignment="Top" Width="81.466"/>
-        <TextBox x:Name="textBox1" HorizontalAlignment="Right" Height="24.569" Margin="0,51.724,64.366,0" TextWrapping="Wrap" Text="{Binding SomeText, Mode=OneWay}" VerticalAlignment="Top" Width="84.341"/>
+        <TextBox x:Name="textBox" Height="24.569" Margin="102.095,27.155,175.862,0" TextWrapping="Wrap" Text="{Binding SelectedPatient.AddressLineOne}" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox1" Margin="102.095,56.724,175.862,0" TextWrapping="Wrap" Text="{Binding SelectedPatient.AddressLineTwo}" Height="24.569" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="24.569" Margin="10,27.155,0,0" TextWrapping="Wrap" Text="Address:" VerticalAlignment="Top" Width="98.533"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,56.724,0,0" TextWrapping="Wrap" Text="Address:" Width="103.733" Height="24.569" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Height="25.862" Margin="10,86.293,0,0" TextWrapping="Wrap" Text="City:" VerticalAlignment="Top" Width="57.242"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="25.862" Margin="102.095,86.293,0,0" TextWrapping="Wrap" Text="{Binding SelectedPatient.City}" VerticalAlignment="Top" Width="132.163"/>
+        <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Height="25.862" Margin="244.569,88.931,0,0" TextWrapping="Wrap" Text="State:" VerticalAlignment="Top" Width="59.483"/>
+        <TextBox x:Name="textBox3" Height="25.862" Margin="309.052,86.293,175.862,0" TextWrapping="Wrap" Text="{Binding SelectedPatient.State}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Height="25.086" Margin="10,117.155,0,0" TextWrapping="Wrap" Text="Postal Code:" VerticalAlignment="Top" Width="86.983"/>
+        <TextBox x:Name="textBox5" HorizontalAlignment="Left" Height="25.086" Margin="102.095,117.155,0,0" TextWrapping="Wrap" Text= "{Binding SelectedPatient.PostalCode}" VerticalAlignment="Top" Width="132.163"/>
+        <TextBlock x:Name="textBlock5" HorizontalAlignment="Left" Height="22.448" Margin="244.569,119.793,0,0" TextWrapping="Wrap" Text="Country:" VerticalAlignment="Top" Width="59.483"/>
+        <TextBox x:Name="textBox6" Height="25.086" Margin="309.052,117.155,175.862,0" TextWrapping="Wrap" Text="{Binding SelectedPatient.Country}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock6" HorizontalAlignment="Left" Height="23.276" Margin="10,0,0,107.327" TextWrapping="Wrap" Text="Phone:" VerticalAlignment="Bottom" Width="76.638"/>
+        <TextBox x:Name="textBox7" HorizontalAlignment="Left" Height="24.569" Margin="98.276,0,0,107.327" TextWrapping="Wrap" Text="{Binding SelectedPatient.Phone}" VerticalAlignment="Bottom" Width="135.982"/>
+        <TextBlock x:Name="textBlock6_Copy" HorizontalAlignment="Left" Height="23.276" Margin="10,0,0,77.758" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Bottom" Width="76.638"/>
+        <TextBox x:Name="textBox7_Copy" HorizontalAlignment="Left" Height="24.569" Margin="98.276,0,0,77.758" TextWrapping="Wrap" Text="{Binding SelectedPatient.Email}" VerticalAlignment="Bottom" Width="205.776"/>
     </Grid>
 </UserControl>
