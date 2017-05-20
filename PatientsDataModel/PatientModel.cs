@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace PatientsDataModel
 {
     public class Patient
     {
+       
         private int _id;
         public int Id
         {
@@ -184,6 +186,32 @@ namespace PatientsDataModel
             }
         }
 
+        private string _med1Name;
+        public string Med1Name
+        {
+            get
+            {
+                return _med1Name;
+            }
+            set
+            {
+                _med1Name = value;
+            }
+        }
+
+        private string _med1Dosage;
+        public string Med1Dosage
+        {
+            get
+            {
+                return _med1Dosage;
+            }
+            set
+            {
+                _med1Dosage = value;
+            }
+        }
+
         private byte[] _image;
 
         public byte[] Image
@@ -197,8 +225,19 @@ namespace PatientsDataModel
                 _image = value;
             }
         }
+        public List<Medication> MedicationRx { get; set; }
 
 
+    }
+
+    public class Medication
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Dosage { get; set; }
+        public string Frequency { get; set; }
+        [Required]
+        public Patient Patient { get; set; }
     }
 
 }

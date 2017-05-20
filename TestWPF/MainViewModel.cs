@@ -27,6 +27,9 @@ namespace PatientMVVM
         public RiskViewModel RiskTab
         { get; set; }
 
+        public MedsViewModel MedTab
+        { get; set; }
+
         private int _selectedIndex;
         public int SelectedIndex
         {
@@ -41,6 +44,7 @@ namespace PatientMVVM
                 ContactTab.SelectedPatient = Patients[value];
                 ImageTab.SelectedPatient = Patients[value];
                 RiskTab.SelectedPatient = Patients[value];
+                MedTab.SelectedPatient = _repo.GetPatientWithMedication(value + 1);
                 //ImageTab = new ImageViewModel(SelectedPatient);
                 
                 RaisePropertyChangedEvent("SelectedIndex");
@@ -186,9 +190,11 @@ namespace PatientMVVM
             //testData.Add(John1);
             //testData.Add(John2);
             _selectedPatient = testData[0];
+            Patient _selectedWithMeds = _repo.GetPatientWithMedication(1);
             ContactTab = new ContactViewModel(_selectedPatient);
             ImageTab = new ImageViewModel(_selectedPatient);
             RiskTab = new RiskViewModel(_selectedPatient);
+            MedTab = new MedsViewModel(_selectedWithMeds);
             Patients = new ObservableCollection<Patient>(testData);
         }
     }

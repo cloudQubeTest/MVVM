@@ -68,6 +68,22 @@
     <Compile Include="Migrations\201705120633574_added a bool.Designer.cs">
       <DependentUpon>201705120633574_added a bool.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705120756084_added medList.cs" />
+    <Compile Include="Migrations\201705120756084_added medList.Designer.cs">
+      <DependentUpon>201705120756084_added medList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705120838525_reworking med list.cs" />
+    <Compile Include="Migrations\201705120838525_reworking med list.Designer.cs">
+      <DependentUpon>201705120838525_reworking med list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705120859512_reworking med list2.cs" />
+    <Compile Include="Migrations\201705120859512_reworking med list2.Designer.cs">
+      <DependentUpon>201705120859512_reworking med list2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705202037365_added medication class.cs" />
+    <Compile Include="Migrations\201705202037365_added medication class.Designer.cs">
+      <DependentUpon>201705202037365_added medication class.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PatientContext.cs" />
     <Compile Include="PatientModel.cs" />
@@ -89,6 +105,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705120633574_added a bool.resx">
       <DependentUpon>201705120633574_added a bool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705120756084_added medList.resx">
+      <DependentUpon>201705120756084_added medList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705120838525_reworking med list.resx">
+      <DependentUpon>201705120838525_reworking med list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705120859512_reworking med list2.resx">
+      <DependentUpon>201705120859512_reworking med list2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705202037365_added medication class.resx">
+      <DependentUpon>201705202037365_added medication class.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -22,6 +22,12 @@ namespace PatientsDataModel
             return _context.Patients.ToList();
         }
 
+        public Patient GetPatientWithMedication(int id)
+        {
+            return _context.Patients.Include(p => p.MedicationRx)
+              .FirstOrDefault(p => p.Id == id);
+        }
+
 
         public ObservableCollection<Patient> PatientsInMemory()
         {

@@ -26,6 +26,8 @@ namespace PatientsDataModel
         public static byte[] byteImg1 = imageToByteArray(testImg1);
         public static byte[] byteImg2 = imageToByteArray(testImg2);
 
+
+           
         public static void NewDbWithSeed()
         {
 
@@ -36,6 +38,7 @@ namespace PatientsDataModel
                 {
                     return;
                 }
+
 
                 var a = new Patient
                 {
@@ -51,9 +54,28 @@ namespace PatientsDataModel
                     Phone = "555-235-1291",
                     Email = "j.white@example.com",
                     Sedentary = true,
-                    Image = byteImg2
+                    Med1Name = "Aleve",
+                    Med1Dosage = "2x Daily",
+                    Image = byteImg2,
+                    MedicationRx = new List<Medication>()
                  
                 };
+                var aleve = new Medication
+                {
+                    Name = "Aleve",
+                    Dosage = "250mg",
+                    Frequency = "Twice Daily"
+
+                };
+                var vitD = new Medication
+                {
+                    Name = "Vitamin D",
+                    Dosage = "500IU",
+                    Frequency = "Daily"
+                    
+                };
+                a.MedicationRx.Add(aleve);
+                a.MedicationRx.Add(vitD);
                 var b = new Patient
                 {
                     FirstName = "Sara",
@@ -67,9 +89,18 @@ namespace PatientsDataModel
                     Phone = "555-432-8921",
                     Email = "sara123@example.com",
                     Sedentary = false,
-                    Image = byteImg1
+                    Image = byteImg1,
+                    MedicationRx = new List<Medication>()
 
                 };
+                var ibu = new Medication
+                {
+                    Name = "Ibuprofen",
+                    Dosage = "200mg",
+                    Frequency = "Every 6 hours"
+
+                };
+                b.MedicationRx.Add(ibu);
                 var c = new Patient
                 {
                     FirstName = "Don",
@@ -84,8 +115,17 @@ namespace PatientsDataModel
                     Email = "dongreen@fake.net",
                     Age = 10,
                     Sedentary = true,
-                    Image = byteImg1
+                    Image = byteImg1,
+                    MedicationRx = new List<Medication>()
                 };
+                var ibu2 = new Medication
+                {
+                    Name = "Ibuprofen",
+                    Dosage = "400mg",
+                    Frequency = "Every 8 hours"
+
+                };
+                c.MedicationRx.Add(ibu2);
                 var d = new Patient
                 {
                     FirstName = "Sally",
@@ -99,11 +139,19 @@ namespace PatientsDataModel
                     Email = "sallyb@notreal.org",
                     Age = 78,
                     Sedentary = false,
-                    Image = byteImg2
+                    Image = byteImg2,
+                    MedicationRx = new List<Medication>()
                 };
-                context.Patients.AddRange(new List<Patient> { a, b, c, d });
-           
+                var tums = new Medication
+                {
+                    Name = "Calcium Carbonate",
+                    Dosage = "500mg",
+                    Frequency = "As needed"
 
+                };
+                d.MedicationRx.Add(tums);
+                context.Patients.AddRange(new List<Patient> { a, b, c, d });
+          
                 context.SaveChanges();
             }
         }

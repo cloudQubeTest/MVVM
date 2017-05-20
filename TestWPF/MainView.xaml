@@ -24,11 +24,11 @@
                 <DataGridTextColumn x:Name="lastNameColumn"
                                     Binding="{Binding LastName}"
                                     Header="Last Name"
-                                    Width="SizeToHeader"/>
+                                    Width="*"/>
                 <DataGridTextColumn x:Name="firstNameColumn"
                                     Binding="{Binding FirstName}"
                                     Header="First Name"
-                                    Width="SizeToHeader"/>
+                                    Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
         <Rectangle Grid.Column="1" Fill="#FFF4F4F5" Stroke="Black"/>
@@ -37,8 +37,7 @@
                 <contact:ContactView DataContext="{Binding ContactTab, Mode=TwoWay}"/>
             </TabItem>
             <TabItem x:Name="Med" Header="_Medications">
-                <meds:MedsView/>
-                <!--<Grid Background="#FFE5E5E5"/>-->
+                <meds:MedsView DataContext="{Binding MedTab, Mode=TwoWay}"/>
             </TabItem>
             <TabItem x:Name="Risk" Header="_Risk Factors">
                 <risks:RisksView DataContext="{Binding RiskTab, Mode=TwoWay}"/>
