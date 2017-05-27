@@ -56,6 +56,13 @@ namespace PatientMVVM
             }
         }
 
+        private void NewClick()
+        {
+            SelectedPatient = _repo.NewPatient();
+            Patients.Add(SelectedPatient);
+            SelectedIndex = (Patients.Count - 1);
+        }
+
 
     }
 }
