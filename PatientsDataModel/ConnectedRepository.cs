@@ -49,6 +49,16 @@ namespace PatientsDataModel
             _context.Patients.Add(patient);
             return patient;
         }
+
+        public Medication NewMedication()
+        {
+            var medication = new Medication();
+            _context.Medications.Add(medication);
+            return medication;
+        }
+
+
+
 #if false
   /// <summary>
   /// Quick way to initialize and seed the database on first use.

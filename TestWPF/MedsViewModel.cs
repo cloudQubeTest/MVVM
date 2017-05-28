@@ -7,14 +7,16 @@ namespace PatientMVVM
 {
     public class MedsViewModel : ObservableObject
     {
+        private readonly ConnectedRepository _repo;
 
         //Medication emptyMed = new Medication();
         List<Medication> emptyMedList = new List<Medication>();
-        public MedsViewModel(Patient selectedPatient)
+        public MedsViewModel(Patient selectedPatient, ConnectedRepository repo)
         {
             this._selectedPatient = selectedPatient;
             this.Medication = new ObservableCollection<Medication>(selectedPatient.MedicationRx);
             this._medication = new ObservableCollection<Medication>(emptyMedList);
+            this._repo = repo;
         }
 
 
@@ -58,9 +60,24 @@ namespace PatientMVVM
 
         private void NewClick()
         {
-            SelectedPatient = _repo.NewPatient();
-            Patients.Add(SelectedPatient);
-            SelectedIndex = (Patients.Count - 1);
+            var newMed = _repo.NewMedication();
+            SelectedPatient.MedicationRx.Add(newMed);
+            RaisePropertyChangedEvent("Medication");
+        }
+
+        public ICommand NewClickCommand
+        {
+            get { return new DelegateCommand(NewClick); }
+        }
+
+        public ICommand SaveClickCommand
+        {
+            get { return new DelegateCommand(SaveClick); }
+        }
+
+        private void SaveClick()
+        {
+            _repo.Save();
         }
 
 

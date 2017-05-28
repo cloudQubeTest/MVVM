@@ -10,8 +10,8 @@
     <Grid Margin="10">
         <Image Source="{Binding ImageSource}" Margin="0,0,111.207,0">
         </Image>
-        <Button x:Name="Add" Content="Add" HorizontalAlignment="Right" Height="30" Margin="0,0,5,50" VerticalAlignment="Bottom" Width="80" Command="{Binding AddClickCommand}"/>
-        <Button x:Name="grayscale" Content="To Grayscale" HorizontalAlignment="Right" Height="30" Margin="0,15,5,15" VerticalAlignment="Bottom" Width="80" Command="{Binding GrayscaleClickCommand}"/>
+        <Button x:Name="Add" Content="Add" HorizontalAlignment="Right" Height="30" Margin="0,0,5,40" VerticalAlignment="Bottom" Width="80" Command="{Binding AddClickCommand}"/>
+        <Button x:Name="grayscale" Content="To Grayscale" HorizontalAlignment="Right" Height="30" Margin="0,15,5,5" VerticalAlignment="Bottom" Width="80" Command="{Binding GrayscaleClickCommand}"/>
         <Rectangle Margin="0,0,111.207,0" Stroke="Black"/>
     </Grid>
 </UserControl>

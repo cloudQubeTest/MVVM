@@ -194,7 +194,7 @@ namespace PatientMVVM
             ContactTab = new ContactViewModel(_selectedPatient);
             ImageTab = new ImageViewModel(_selectedPatient);
             RiskTab = new RiskViewModel(_selectedPatient);
-            MedTab = new MedsViewModel(_selectedWithMeds);
+            MedTab = new MedsViewModel(_selectedWithMeds, _repo);
             Patients = new ObservableCollection<Patient>(testData);
         }
     }
