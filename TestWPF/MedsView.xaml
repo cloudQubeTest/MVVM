@@ -14,7 +14,6 @@
                 <DataGridTextColumn x:Name="Frequency" Header="Frequency" Binding="{Binding Frequency}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="New" Content="New" HorizontalAlignment="Right" Height="30" Margin="0,0,15,50" VerticalAlignment="Bottom" Width="80" Command="{Binding NewClickCommand}"/>
-        <Button x:Name="Save" Content="Save" HorizontalAlignment="Right" Height="30" Margin="0,0,15,15" VerticalAlignment="Bottom" Width="80" Command="{Binding SaveClickCommand}"/>
+        <Button x:Name="New" Content="New" HorizontalAlignment="Right" Height="30" Margin="0,0,15,15" VerticalAlignment="Bottom" Width="80" Command="{Binding NewClickCommand}"/>
     </Grid>
 </UserControl>
