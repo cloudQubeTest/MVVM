@@ -19,7 +19,7 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dataGrid" EnableRowVirtualization="True" RowDetailsVisibilityMode="VisibleWhenSelected" Grid.RowSpan="2" ItemsSource="{Binding Patients}" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}" CanUserAddRows="False" Background="#FFF0F0F0" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False">
+        <DataGrid x:Name="dataGrid" EnableRowVirtualization="True" RowDetailsVisibilityMode="VisibleWhenSelected" Grid.RowSpan="2" ItemsSource="{Binding Patients}" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}" CanUserAddRows="False" Background="#FFF0F0F0" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False" IsSynchronizedWithCurrentItem="False">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="lastNameColumn"
                                     Binding="{Binding LastName}"
@@ -34,7 +34,7 @@
         <Rectangle Grid.Column="1" Fill="#FFF4F4F5" Stroke="Black"/>
         <TabControl x:Name="tabControl" Grid.Column="1" Grid.Row="1">
             <TabItem x:Name="Contact" Header="_Contact Info">
-                <contact:ContactView DataContext="{Binding ContactTab, Mode=TwoWay}"/>
+                <contact:ContactView DataContext="{Binding ContactTab, Mode=TwoWay}" Margin="0,0,-25.155,0"/>
             </TabItem>
             <TabItem x:Name="Med" Header="_Medications">
                 <meds:MedsView DataContext="{Binding MedTab, Mode=TwoWay}"/>
@@ -46,24 +46,24 @@
                 <image:ImageView DataContext="{Binding ImageTab, Mode=TwoWay}"/>
             </TabItem>
         </TabControl>
-        <TextBox x:Name="textBox" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="82.6,15,0,0" TextWrapping="Wrap" Text="{Binding SelectedPatient.FirstName}" VerticalAlignment="Top" Width="84"/>
-        <TextBox x:Name="textBox1" Grid.Column="1" Height="25" Margin="261.2,15,0,0" TextWrapping="Wrap" Text="{Binding SelectedPatient.LastName}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80"/>
-        <TextBox x:Name="textBox2" Grid.Column="1" HorizontalAlignment="Left" Margin="261.2,45,0,0" TextWrapping="Wrap" Text="{Binding SelectedPatient.Age}" Width="80" Height="25" VerticalAlignment="Top"/>
+        <TextBox x:Name="LName" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="82.6,15,0,0" TextWrapping="Wrap" Text="{Binding SelectedPatient.FirstName}" VerticalAlignment="Top" Width="84"/>
+        <TextBox x:Name="FName" Grid.Column="1" Height="25" Margin="261.2,15,0,0" TextWrapping="Wrap" Text="{Binding SelectedPatient.LastName}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80"/>
+        <TextBox x:Name="Age" Grid.Column="1" HorizontalAlignment="Left" Margin="261.2,45,0,0" TextWrapping="Wrap" Text="{Binding SelectedPatient.Age}" Width="80" Height="25" VerticalAlignment="Top"/>
         <Button x:Name="Save" Content="Save" Grid.Column="1" HorizontalAlignment="Right" Height="30" Margin="0,50,15,15" VerticalAlignment="Bottom" Width="80" Command="{Binding SaveClickCommand}"/>
-        <Button x:Name="button" Content="New" Grid.Column="1" HorizontalAlignment="Right" Height="30" Margin="0,15,15,55" VerticalAlignment="Bottom" Width="80" Command="{Binding NewClickCommand}"/>
-        <TextBlock x:Name="textBlock" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="11,15,0,0" TextWrapping="Wrap" Text="Last Name:" VerticalAlignment="Top" Width="61.6"/>
-        <TextBlock x:Name="textBlock_Copy" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="194.6,15,0,0" TextWrapping="Wrap" Text="First Name:" VerticalAlignment="Top" Width="61.6"/>
-        <TextBox x:Name="textBox_Copy" Grid.Column="1" HorizontalAlignment="Left" Margin="82.6,45,0,0" TextWrapping="Wrap" Text="{Binding SelectedPatient.FirstName}" Width="84" Height="25" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock_Copy1" Grid.Column="1" HorizontalAlignment="Left" Margin="11,45,0,0" TextWrapping="Wrap" Text="DOB:" Width="30.6" Height="25" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock_Copy2" Grid.Column="1" HorizontalAlignment="Left" Margin="194.6,45,0,0" TextWrapping="Wrap" Text="Age:" Width="61.6" Height="25" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox_Copy1" Grid.Column="1" HorizontalAlignment="Left" Margin="82.6,75,0,0" TextWrapping="Wrap" Text="{Binding SelectedPatient.FirstName}" Width="84" Height="25" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock_Copy3" Grid.Column="1" HorizontalAlignment="Left" Margin="11,75,0,0" TextWrapping="Wrap" Text="Height:" Width="61.6" Height="25" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox_Copy2" Grid.Column="1" Margin="261.2,75,0,0" TextWrapping="Wrap" Text="{Binding SelectedPatient.FirstName}" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80"/>
-        <TextBlock x:Name="textBlock_Copy4" Grid.Column="1" HorizontalAlignment="Left" Margin="194.6,75,0,0" TextWrapping="Wrap" Text="Weight:" Width="61.6" Height="25" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock_Copy5" Grid.Column="1" HorizontalAlignment="Left" Margin="360,45,0,0" TextWrapping="Wrap" Text="Gender: " Width="61.6" Height="25" VerticalAlignment="Top"/>
-        <ComboBox x:Name="comboBox" Grid.Column="1" HorizontalAlignment="Left" Margin="442.6,45,0,0" Width="80" VerticalAlignment="Top" Height="25"/>
-        <TextBox x:Name="textBox1_Copy" Grid.Column="1" Height="25" Margin="442.6,15,0,0" TextWrapping="Wrap" Text="{Binding SelectedPatient.LastName}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80"/>
-        <TextBlock x:Name="textBlock_Copy6" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="360,15,170.4,0" TextWrapping="Wrap" Text="Middle Name:" VerticalAlignment="Top" Width="75.6"/>
+        <Button x:Name="New" Content="New" Grid.Column="1" HorizontalAlignment="Right" Height="30" Margin="0,15,15,55" VerticalAlignment="Bottom" Width="80" Command="{Binding NewClickCommand}"/>
+        <TextBlock x:Name="nameLable" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="11,15,0,0" TextWrapping="Wrap" Text="Last Name:" VerticalAlignment="Top" Width="61.6"/>
+        <TextBlock x:Name="fnameLable" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="194.6,15,0,0" TextWrapping="Wrap" Text="First Name:" VerticalAlignment="Top" Width="61.6"/>
+        <TextBox x:Name="DOB" Grid.Column="1" HorizontalAlignment="Left" Margin="82.6,45,0,0" TextWrapping="Wrap" Text="{Binding SelectedPatient.DOB}" Width="84" Height="25" VerticalAlignment="Top"/>
+        <TextBlock x:Name="dobLable" Grid.Column="1" HorizontalAlignment="Left" Margin="11,45,0,0" TextWrapping="Wrap" Text="DOB:" Width="30.6" Height="25" VerticalAlignment="Top"/>
+        <TextBlock x:Name="ageLable" Grid.Column="1" HorizontalAlignment="Left" Margin="194.6,45,0,0" TextWrapping="Wrap" Text="Age:" Width="61.6" Height="25" VerticalAlignment="Top"/>
+        <TextBox x:Name="Height" Grid.Column="1" HorizontalAlignment="Left" Margin="82.6,75,0,0" TextWrapping="Wrap" Text="{Binding SelectedPatient.Height}" Width="84" Height="25" VerticalAlignment="Top"/>
+        <TextBlock x:Name="heightLable" Grid.Column="1" HorizontalAlignment="Left" Margin="11,75,0,0" TextWrapping="Wrap" Text="Height:" Width="61.6" Height="25" VerticalAlignment="Top"/>
+        <TextBox x:Name="Weight" Grid.Column="1" Margin="261.2,75,0,0" TextWrapping="Wrap" Text="{Binding SelectedPatient.Weight}" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80"/>
+        <TextBlock x:Name="weightLable" Grid.Column="1" HorizontalAlignment="Left" Margin="194.6,75,0,0" TextWrapping="Wrap" Text="Weight:" Width="61.6" Height="25" VerticalAlignment="Top"/>
+        <TextBlock x:Name="sexLable" Grid.Column="1" HorizontalAlignment="Left" Margin="360,45,0,0" TextWrapping="Wrap" Text="Sex: " Width="61.6" Height="25" VerticalAlignment="Top"/>
+        <ComboBox x:Name="Sex" Grid.Column="1" HorizontalAlignment="Left" Margin="442.6,45,0,0" Width="80" VerticalAlignment="Top" Height="25" ItemsSource="{Binding Sex}" SelectedItem="{Binding SelectedPatient.Sex}"/>
+        <TextBox x:Name="MName" Grid.Column="1" Height="25" Margin="442.6,15,0,0" TextWrapping="Wrap" Text="{Binding SelectedPatient.MiddleName}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80"/>
+        <TextBlock x:Name="mnameLable" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="360,15,170.4,0" TextWrapping="Wrap" Text="Middle Name:" VerticalAlignment="Top" Width="75.6"/>
 
     </Grid>
 </Window>

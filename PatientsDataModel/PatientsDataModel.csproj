@@ -84,8 +84,13 @@
     <Compile Include="Migrations\201705202037365_added medication class.Designer.cs">
       <DependentUpon>201705202037365_added medication class.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705300154157_added height, weight, sex, dob.cs" />
+    <Compile Include="Migrations\201705300154157_added height, weight, sex, dob.Designer.cs">
+      <DependentUpon>201705300154157_added height, weight, sex, dob.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PatientContext.cs" />
+    <Compile Include="PatientEnum.cs" />
     <Compile Include="PatientModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -117,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705202037365_added medication class.resx">
       <DependentUpon>201705202037365_added medication class.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705300154157_added height, weight, sex, dob.resx">
+      <DependentUpon>201705300154157_added height, weight, sex, dob.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

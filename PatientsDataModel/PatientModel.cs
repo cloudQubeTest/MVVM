@@ -60,6 +60,13 @@ namespace PatientsDataModel
             }
         }
 
+        public string DOB { get; set; }
+
+        public string Height { get; set; }
+        public string Weight { get; set; }
+        public string MiddleName { get; set; }
+        public Sex Sex { get; set; }
+
         private string _addressLineOne;
 
         public string AddressLineOne

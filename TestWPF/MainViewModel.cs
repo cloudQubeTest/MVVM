@@ -2,7 +2,9 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using PatientsDataModel;
+using System.Linq;
 using System.Windows.Media.Imaging;
+using System;
 
 //using PatientMVVM;
 
@@ -101,6 +103,14 @@ namespace PatientMVVM
             }
         }
 
+        public IEnumerable<Sex> Sex
+        {
+            get
+            {
+                return Enum.GetValues(typeof(Sex)).Cast<Sex>();
+            }
+        }
+
 
         //private string _firstName;
         //public string FirstName
@@ -189,7 +199,9 @@ namespace PatientMVVM
             //John2.Age = 56;
             //testData.Add(John1);
             //testData.Add(John2);
-            _selectedPatient = testData[0];
+            //_selectedPatient = testData.FirstOrDefault();
+            //_selectedIndex = 1;
+            SelectedPatient = testData.FirstOrDefault();
             Patient _selectedWithMeds = _repo.GetPatientWithMedication(1);
             ContactTab = new ContactViewModel(_selectedPatient);
             ImageTab = new ImageViewModel(_selectedPatient);

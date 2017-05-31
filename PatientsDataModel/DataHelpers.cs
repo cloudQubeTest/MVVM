@@ -44,7 +44,12 @@ namespace PatientsDataModel
                 {
                     FirstName = "Joe",
                     LastName = "White",
+                    MiddleName = "Will",
                     Age = 35,
+                    DOB = "3/12/1982",
+                    Height = "5'9\"",
+                    Weight = "168lbs",
+                    Sex = Sex.Male,
                     AddressLineOne = "786 N 15th ST",
                     AddressLineTwo = "App. 407",
                     City = "Redmond",
@@ -80,7 +85,12 @@ namespace PatientsDataModel
                 {
                     FirstName = "Sara",
                     LastName = "Grey",
+                    MiddleName = "Rose",
                     Age = 42,
+                    DOB = "1/9/1975",
+                    Height = "5'4\"",
+                    Weight = "130lbs",
+                    Sex = Sex.Female,
                     AddressLineOne = "4112 23rd Ave",
                     City = "Seattle",
                     State = "Washington",
@@ -105,6 +115,7 @@ namespace PatientsDataModel
                 {
                     FirstName = "Don",
                     LastName = "Green",
+                    MiddleName = "Robert",
                     AddressLineOne = "567 NE 4th ST",
                     AddressLineTwo = "Summerview Apparment 304",
                     City = "Portland",
@@ -114,7 +125,11 @@ namespace PatientsDataModel
                     Phone = "555-111-8080",
                     Email = "dongreen@fake.net",
                     Age = 10,
-                    Sedentary = true,
+                    DOB = "4/23/2007",
+                    Height = "4'6\"",
+                    Weight = "72lbs",
+                    Sex = Sex.Male,
+                    Sedentary = false,
                     Image = byteImg1,
                     MedicationRx = new List<Medication>()
                 };
@@ -130,6 +145,7 @@ namespace PatientsDataModel
                 {
                     FirstName = "Sally",
                     LastName = "Black",
+                    MiddleName = "Lily",
                     AddressLineOne = "222 22nd Ave",
                     City = "New York City",
                     State = "New York",
@@ -138,7 +154,11 @@ namespace PatientsDataModel
                     Phone = "555-603-0921",
                     Email = "sallyb@notreal.org",
                     Age = 78,
-                    Sedentary = false,
+                    DOB = "5/07/1939",
+                    Height = "5'6\"",
+                    Weight = "140lbs",
+                    Sex = Sex.Female,
+                    Sedentary = true,
                     Image = byteImg2,
                     MedicationRx = new List<Medication>()
                 };
