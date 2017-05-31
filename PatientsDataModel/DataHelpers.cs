@@ -27,7 +27,7 @@ namespace PatientsDataModel
         public static byte[] byteImg2 = imageToByteArray(testImg2);
 
 
-           
+
         public static void NewDbWithSeed()
         {
 
@@ -59,11 +59,13 @@ namespace PatientsDataModel
                     Phone = "555-235-1291",
                     Email = "j.white@example.com",
                     Sedentary = true,
-                    Med1Name = "Aleve",
-                    Med1Dosage = "2x Daily",
+                    Smoker = true,
+                    Diabetes = false,
+                    HDL = 45.7f,
+                    LDL = 135.3f,
                     Image = byteImg2,
                     MedicationRx = new List<Medication>()
-                 
+
                 };
                 var aleve = new Medication
                 {
@@ -77,7 +79,7 @@ namespace PatientsDataModel
                     Name = "Vitamin D",
                     Dosage = "500IU",
                     Frequency = "Daily"
-                    
+
                 };
                 a.MedicationRx.Add(aleve);
                 a.MedicationRx.Add(vitD);
@@ -99,6 +101,10 @@ namespace PatientsDataModel
                     Phone = "555-432-8921",
                     Email = "sara123@example.com",
                     Sedentary = false,
+                    Smoker = false,
+                    Diabetes = false,
+                    HDL = 40.1f,
+                    LDL = 100.6f,
                     Image = byteImg1,
                     MedicationRx = new List<Medication>()
 
@@ -130,6 +136,10 @@ namespace PatientsDataModel
                     Weight = "72lbs",
                     Sex = Sex.Male,
                     Sedentary = false,
+                    Smoker = false,
+                    Diabetes = false,
+                    HDL = 40.5f,
+                    LDL = 110.7f,
                     Image = byteImg1,
                     MedicationRx = new List<Medication>()
                 };
@@ -159,6 +169,10 @@ namespace PatientsDataModel
                     Weight = "140lbs",
                     Sex = Sex.Female,
                     Sedentary = true,
+                    Smoker = false,
+                    Diabetes = true,
+                    HDL = 60.7f,
+                    LDL = 167.2f,
                     Image = byteImg2,
                     MedicationRx = new List<Medication>()
                 };
@@ -171,9 +185,13 @@ namespace PatientsDataModel
                 };
                 d.MedicationRx.Add(tums);
                 context.Patients.AddRange(new List<Patient> { a, b, c, d });
-          
+
                 context.SaveChanges();
             }
+        }
+        public static void removeDB()
+        {
+            Database.SetInitializer(new DropCreateDatabaseAlways<PatientContext>());
         }
     }
 }

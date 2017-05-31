@@ -73,8 +73,11 @@ namespace PatientMVVM
         public ImageViewModel(Patient selectedPatient)
         {
            _selectedPatient = selectedPatient;
-            Bitmap bitmap = new Bitmap(ImageConversion.byteArrayToImage(SelectedPatient.Image));
-            ImageSource = ImageConversion.BitmapToBitmapSource(bitmap);
+            if (selectedPatient != null && selectedPatient.Image != null)
+            {
+                Bitmap bitmap = new Bitmap(ImageConversion.byteArrayToImage(SelectedPatient.Image));
+                ImageSource = ImageConversion.BitmapToBitmapSource(bitmap);
+            }
         }
         //TODO: Remove lines 54 and 55 and place into own method to see if pictures will change
 
@@ -131,12 +134,14 @@ namespace PatientMVVM
         private void AddImageClick()
         {
             string path = getFilePath();
-            Bitmap addImg = new Bitmap(path);
-            ImageSource = ImageConversion.BitmapToBitmapSource(addImg);
+            if (path != "")
+            {
+                Bitmap addImg = new Bitmap(path);
+                ImageSource = ImageConversion.BitmapToBitmapSource(addImg);
 
-            imgToStore = System.Drawing.Image.FromFile(path);
-            SelectedPatient.Image = ImageConversion.imageToByteArray(imgToStore);
-            //Console.Write(path);
+                imgToStore = System.Drawing.Image.FromFile(path);
+                SelectedPatient.Image = ImageConversion.imageToByteArray(imgToStore);
+            }
         }
 
         public ICommand AddClickCommand

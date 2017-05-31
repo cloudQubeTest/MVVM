@@ -88,6 +88,10 @@
     <Compile Include="Migrations\201705300154157_added height, weight, sex, dob.Designer.cs">
       <DependentUpon>201705300154157_added height, weight, sex, dob.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705310628416_added smoker, diabetes, hdl, ldl.cs" />
+    <Compile Include="Migrations\201705310628416_added smoker, diabetes, hdl, ldl.Designer.cs">
+      <DependentUpon>201705310628416_added smoker, diabetes, hdl, ldl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PatientContext.cs" />
     <Compile Include="PatientEnum.cs" />
@@ -125,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705300154157_added height, weight, sex, dob.resx">
       <DependentUpon>201705300154157_added height, weight, sex, dob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705310628416_added smoker, diabetes, hdl, ldl.resx">
+      <DependentUpon>201705310628416_added smoker, diabetes, hdl, ldl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -14,8 +14,11 @@ namespace PatientMVVM
         public MedsViewModel(Patient selectedPatient, ConnectedRepository repo)
         {
             this._selectedPatient = selectedPatient;
-            this.Medication = new ObservableCollection<Medication>(selectedPatient.MedicationRx);
-            this._medication = new ObservableCollection<Medication>(emptyMedList);
+            if (selectedPatient != null)
+            {
+                this.Medication = new ObservableCollection<Medication>(selectedPatient.MedicationRx);
+                this._medication = new ObservableCollection<Medication>(emptyMedList);
+            }
             this._repo = repo;
         }
 

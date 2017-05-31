@@ -60,12 +60,11 @@ namespace PatientsDataModel
 
 
 #if false
-  /// <summary>
-  /// Quick way to initialize and seed the database on first use.
-  /// </summary>
+  //Quick way to initialize and seed the database on first use.
     public ConnectedRepository() {
-      DataHelpers.NewDbWithSeed();
+      DataHelpers.removeDB();
     }
+
 #endif
     }
 }
