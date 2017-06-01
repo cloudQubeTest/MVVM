@@ -188,10 +188,8 @@ namespace PatientMVVM
         {
             SelectedPatient = _repo.NewPatient();
             Patients.Add(SelectedPatient);
-            SelectedIndex = (Patients.Count - 1);
-            SelectedPatient.MedicationRx = new List<Medication>();
             SaveClick();
-            MedTab.SelectedPatient = _repo.GetPatientWithMedication(SelectedPatient.Id);
+            SelectedIndex = (Patients.Count - 1);
             RaisePropertyChangedEvent("SelectedPatient");
             RaisePropertyChangedEvent("SelectedIndex");
             RaisePropertyChangedEvent("Patients");
