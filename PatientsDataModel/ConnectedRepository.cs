@@ -28,6 +28,12 @@ namespace PatientsDataModel
               .FirstOrDefault(p => p.Id == id);
         }
 
+        public void DeleteCurrentPatient(Patient patient)
+        {
+            _context.Patients.Remove(patient);
+            Save();
+        }
+
 
         public ObservableCollection<Patient> PatientsInMemory()
         {

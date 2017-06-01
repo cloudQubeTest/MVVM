@@ -5,6 +5,7 @@ using PatientsDataModel;
 using System.Linq;
 using System.Windows.Media.Imaging;
 using System;
+using System.Windows;
 
 //using PatientMVVM;
 
@@ -214,6 +215,25 @@ namespace PatientMVVM
         public ICommand NewMedClickCommand
         {
             get { return new DelegateCommand(NewMedClick); }
+        }
+
+        private void DeletePatientClick()
+        {
+            switch (MessageBox.Show("Delete? Really?", "Patient Entry", MessageBoxButton.YesNo))
+            {
+                case MessageBoxResult.Yes:
+                    var patientToDelete = _selectedPatient;
+                    SelectedIndex = 0;
+                    _repo.DeleteCurrentPatient(patientToDelete);
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
+        }
+
+        public ICommand DeleteClickCommand
+        {
+            get { return new DelegateCommand(DeletePatientClick); }
         }
 
 
