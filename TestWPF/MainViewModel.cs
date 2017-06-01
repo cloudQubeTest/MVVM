@@ -204,7 +204,10 @@ namespace PatientMVVM
 
         private void NewMedClick()
         {
-            
+            Medication newMed = new Medication();
+            SelectedPatient.MedicationRx.Add(newMed);
+            MedTab.SelectedPatient = getPMeds(Patients[SelectedIndex]);
+
         }
 
 
