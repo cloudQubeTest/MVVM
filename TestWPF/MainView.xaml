@@ -64,6 +64,7 @@
         <ComboBox x:Name="Sex" Grid.Column="1" HorizontalAlignment="Left" Margin="442.6,45,0,0" Width="80" VerticalAlignment="Top" Height="25" ItemsSource="{Binding Sex}" SelectedItem="{Binding SelectedPatient.Sex}"/>
         <TextBox x:Name="MName" Grid.Column="1" Height="25" Margin="442.6,15,0,0" TextWrapping="Wrap" Text="{Binding SelectedPatient.MiddleName}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80"/>
         <TextBlock x:Name="mnameLable" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="360,15,170.4,0" TextWrapping="Wrap" Text="Middle Name:" VerticalAlignment="Top" Width="75.6"/>
+        <Button x:Name="button" Content="Button" Grid.Column="1" HorizontalAlignment="Right" Height="32" Margin="0,0,15,64" Grid.Row="1" VerticalAlignment="Bottom" Width="77" Command="{Binding NewMedClickCommand}"/>
 
     </Grid>
 </Window>

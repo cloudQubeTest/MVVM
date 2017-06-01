@@ -46,7 +46,10 @@ namespace PatientMVVM
                 ContactTab.SelectedPatient = Patients[value];
                 ImageTab.SelectedPatient = Patients[value];
                 RiskTab.SelectedPatient = Patients[value];
-                MedTab.SelectedPatient = _repo.GetPatientWithMedication(value + 1);
+                //MedTab.SelectedPatient = Patients[value];
+                //Patient _selectedPatientMeds = new Patient();
+                //_selectedPatientMeds = _repo.GetPatientWithMedication(value + 1);
+                MedTab.SelectedPatient = getPMeds(Patients[value]); //TODO fix this
                 //ImageTab = new ImageViewModel(SelectedPatient);
                 
                 RaisePropertyChangedEvent("SelectedIndex");
@@ -111,6 +114,11 @@ namespace PatientMVVM
             }
         }
 
+        public Patient getPMeds(Patient patient)
+        {
+            return _repo.GetPatientWithMedication(patient.Id);
+        }
+
 
         //private string _firstName;
         //public string FirstName
@@ -172,6 +180,7 @@ namespace PatientMVVM
 
         private void SaveClick()
         {
+            //if (SelectedPatient.MedicationRx != null) //TODO fix this
             _repo.Save();
         }
 
@@ -180,11 +189,30 @@ namespace PatientMVVM
             SelectedPatient = _repo.NewPatient();
             Patients.Add(SelectedPatient);
             SelectedIndex = (Patients.Count - 1);
+            SelectedPatient.MedicationRx = new List<Medication>();
+            SaveClick();
+            MedTab.SelectedPatient = _repo.GetPatientWithMedication(SelectedPatient.Id);
+            RaisePropertyChangedEvent("SelectedPatient");
+            RaisePropertyChangedEvent("SelectedIndex");
+            RaisePropertyChangedEvent("Patients");
+            //RaisePropertyChangedEvent("MedTab");
+           // MedTab.NewClick();
         }
 
         public ICommand NewClickCommand
         {
             get { return new DelegateCommand(NewClick); }
+        }
+
+        private void NewMedClick()
+        {
+            
+        }
+
+
+        public ICommand NewMedClickCommand
+        {
+            get { return new DelegateCommand(NewMedClick); }
         }
 
 
@@ -202,11 +230,12 @@ namespace PatientMVVM
             //_selectedPatient = testData.FirstOrDefault();
             //_selectedIndex = 1;
             SelectedPatient = testData.FirstOrDefault();
-            Patient _selectedWithMeds = _repo.GetPatientWithMedication(1);
+            //Patient _selectedWithMeds = new Patient();
+            //_selectedWithMeds = _repo.GetPatientWithMedication(1);
             ContactTab = new ContactViewModel(_selectedPatient);
             ImageTab = new ImageViewModel(_selectedPatient);
             RiskTab = new RiskViewModel(_selectedPatient);
-            MedTab = new MedsViewModel(_selectedWithMeds, _repo);
+            MedTab = new MedsViewModel(getPMeds(_selectedPatient), _repo);
             Patients = new ObservableCollection<Patient>(testData);
         }
     }

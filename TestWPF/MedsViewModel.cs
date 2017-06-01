@@ -13,12 +13,10 @@ namespace PatientMVVM
         List<Medication> emptyMedList = new List<Medication>();
         public MedsViewModel(Patient selectedPatient, ConnectedRepository repo)
         {
-            this._selectedPatient = selectedPatient;
-            if (selectedPatient != null)
-            {
-                this.Medication = new ObservableCollection<Medication>(selectedPatient.MedicationRx);
-                this._medication = new ObservableCollection<Medication>(emptyMedList);
-            }
+            //_selectedPatient = new Patient();
+            _selectedPatient = selectedPatient;
+            List<Medication> MedList = new List<Medication>(SelectedPatient.MedicationRx);
+            _medication = new ObservableCollection<Medication>(MedList);
             this._repo = repo;
         }
 
@@ -34,38 +32,34 @@ namespace PatientMVVM
             set
             {
                 _selectedPatient = value;
+                List<Medication> MedList = new List<Medication>(_selectedPatient.MedicationRx);
+                this.Medication = new ObservableCollection<Medication>(MedList);
 
 
                 RaisePropertyChangedEvent("SelectedPatient");
-                RaisePropertyChangedEvent("Medication");
             }
         }
 
-       private ObservableCollection<Medication> _medication = new ObservableCollection<Medication>();
-       // private ObservableCollection<Medication> _medication;
+       //private ObservableCollection<Medication> _medication = new ObservableCollection<Medication>();
+       private ObservableCollection<Medication> _medication;
         public ObservableCollection<Medication> Medication
         {
             get
             {
-                if (SelectedPatient == null)
-                {
-                    return _medication;
-                }
-                return new ObservableCollection<Medication>(SelectedPatient.MedicationRx);
+
+                    return _medication; //TODO broken
             }
             set
             {
-                _medication = new ObservableCollection<Medication>(value);
+                _medication = value;
                 RaisePropertyChangedEvent("Medication");
 
             }
         }
 
-        private void NewClick()
+        public void NewClick()
         {
-            var newMed = _repo.NewMedication();
-            SelectedPatient.MedicationRx.Add(newMed);
-            RaisePropertyChangedEvent("Medication");
+    
         }
 
         public ICommand NewClickCommand

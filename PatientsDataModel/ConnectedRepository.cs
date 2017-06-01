@@ -53,7 +53,8 @@ namespace PatientsDataModel
         public Medication NewMedication()
         {
             var medication = new Medication();
-            _context.Medications.Add(medication);
+            //medication.Patient = patient;
+            //_context.Medications.Add(medication);
             return medication;
         }
 
@@ -62,8 +63,15 @@ namespace PatientsDataModel
 #if false
   //Quick way to initialize and seed the database on first use.
     public ConnectedRepository() {
-      DataHelpers.removeDB();
-    }
+      DataHelpers.NewDbWithSeed();
+        }
+#endif
+#if false
+        //Quick way to wipe DB
+        public ConnectedRepository()
+        {
+            DataHelpers.removeDB();
+        }
 
 #endif
     }
