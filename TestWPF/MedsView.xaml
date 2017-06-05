@@ -7,13 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Width="Auto" Height="Auto">
     <Grid>
-        <DataGrid x:Name="dataGrid" Margin="10,10,111.207,10" ItemsSource="{Binding Medication}" CanUserAddRows="False" SelectedIndex="{Binding SelectedMedIndex}">
+        <DataGrid x:Name="dataGrid" Margin="10,10,111.207,10" ItemsSource="{Binding Medication}" CanUserAddRows="False" SelectedIndex="{Binding SelectedMedIndex}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="Medication_Name" Header="Medication Name " Binding="{Binding Name}"/>
                 <DataGridTextColumn x:Name="Dosage" Header="Dosage" Binding="{Binding Dosage}"/>
                 <DataGridTextColumn x:Name="Frequency" Header="Frequency" Binding="{Binding Frequency}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="New" Content="New" HorizontalAlignment="Right" Height="30" Margin="0,0,15,15" VerticalAlignment="Bottom" Width="80" Command="{Binding NewClickCommand}"/>
     </Grid>
 </UserControl>
