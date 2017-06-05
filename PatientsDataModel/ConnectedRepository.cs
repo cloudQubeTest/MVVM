@@ -52,6 +52,8 @@ namespace PatientsDataModel
         public Patient NewPatient()
         {
             var patient = new Patient();
+            var meds = new List<Medication>();
+            patient.MedicationRx = meds;
             _context.Patients.Add(patient);
             return patient;
         }

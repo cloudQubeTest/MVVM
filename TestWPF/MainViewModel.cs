@@ -43,16 +43,23 @@ namespace PatientMVVM
             set
             {
                 _selectedIndex = value;
-                SelectedPatient = Patients[value];
-                ContactTab.SelectedPatient = Patients[value];
-                ImageTab.SelectedPatient = Patients[value];
-                RiskTab.SelectedPatient = Patients[value];
-                //MedTab.SelectedPatient = Patients[value];
-                //Patient _selectedPatientMeds = new Patient();
-                //_selectedPatientMeds = _repo.GetPatientWithMedication(value + 1);
-                MedTab.SelectedPatient = getPMeds(Patients[value]); //TODO fix this
-                //ImageTab = new ImageViewModel(SelectedPatient);
-                
+                if (_selectedIndex >= 0 && Patients.Count != 0)
+                {
+                    SelectedPatient = Patients[value];
+                    ContactTab.SelectedPatient = Patients[value];
+                    ImageTab.SelectedPatient = Patients[value];
+                    RiskTab.SelectedPatient = Patients[value];
+                    //MedTab.SelectedPatient = Patients[value];
+                    //Patient _selectedPatientMeds = new Patient();
+                    //_selectedPatientMeds = _repo.GetPatientWithMedication(value + 1);
+                    //if (Patients[value] != null)
+                        //if(SelectedPatient.MedicationRx != null)
+                        if (MedTab == null)
+                        MedTab = new MedsViewModel(getPMeds(_selectedPatient), _repo);
+                        else
+                        MedTab.SelectedPatient = getPMeds(Patients[value]); //TODO fix this
+                                                                            //ImageTab = new ImageViewModel(SelectedPatient);
+                }
                 RaisePropertyChangedEvent("SelectedIndex");
             }
         }
@@ -187,7 +194,9 @@ namespace PatientMVVM
 
         private void NewClick()
         {
-            SelectedPatient = _repo.NewPatient();
+            Patient newPatient = new Patient();
+            newPatient = _repo.NewPatient();
+            SelectedPatient = newPatient;
             Patients.Add(SelectedPatient);
             SaveClick();
             SelectedIndex = (Patients.Count - 1);
@@ -219,15 +228,26 @@ namespace PatientMVVM
 
         private void DeletePatientClick()
         {
-            switch (MessageBox.Show("Delete? Really?", "Patient Entry", MessageBoxButton.YesNo))
+            if (SelectedPatient == null)
+                MessageBox.Show("No Patient to Delete", "Cannot Delete", MessageBoxButton.OK);
+            else
             {
-                case MessageBoxResult.Yes:
-                    var patientToDelete = _selectedPatient;
-                    SelectedIndex = 0;
-                    _repo.DeleteCurrentPatient(patientToDelete);
-                    break;
-                case MessageBoxResult.No:
-                    break;
+                switch (MessageBox.Show("Delete Selected Patient?", "Patient Entry", MessageBoxButton.YesNo))
+                {
+                    case MessageBoxResult.Yes:
+                        var patientToDelete = SelectedPatient;
+                        //if (SelectedIndex == 0)
+                        //    if(Patients.Count == 1)
+                        //    SelectedIndex++;
+                        //else
+                        //SelectedIndex = 0;
+                        _repo.DeleteCurrentPatient(patientToDelete);
+                        Patients.Remove(patientToDelete);
+                        SelectedIndex = 0;
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
             }
         }
 
@@ -256,6 +276,7 @@ namespace PatientMVVM
             ContactTab = new ContactViewModel(_selectedPatient);
             ImageTab = new ImageViewModel(_selectedPatient);
             RiskTab = new RiskViewModel(_selectedPatient);
+            if(_selectedPatient != null)
             MedTab = new MedsViewModel(getPMeds(_selectedPatient), _repo);
             Patients = new ObservableCollection<Patient>(testData);
         }
