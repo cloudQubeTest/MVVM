@@ -59,6 +59,7 @@ namespace PatientMVVM
 
         public void NewClick()
         {
+            
     
         }
 

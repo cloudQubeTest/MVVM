@@ -19,6 +19,8 @@ namespace PatientMVVM
         //Patient John2 = new Patient();
         List<Patient> testData;
 
+        Patient emptyPatient = new Patient();
+
         private ObservableCollection<Patient> _patients;
 
         public ContactViewModel ContactTab
@@ -59,6 +61,16 @@ namespace PatientMVVM
                         else
                         MedTab.SelectedPatient = getPMeds(Patients[value]); //TODO fix this
                                                                             //ImageTab = new ImageViewModel(SelectedPatient);
+                }
+                else
+                {
+                    emptyPatient.MedicationRx = new List<Medication>();
+                    //SelectedPatient = emptyPatient;
+                    ContactTab.SelectedPatient = emptyPatient;
+                    ImageTab.SelectedPatient = emptyPatient;
+                    RiskTab.SelectedPatient = emptyPatient;
+                    MedTab.SelectedPatient = emptyPatient;
+
                 }
                 RaisePropertyChangedEvent("SelectedIndex");
             }
@@ -214,6 +226,11 @@ namespace PatientMVVM
 
         private void NewMedClick()
         {
+            if(Patients.Count == 0)
+            {
+                MessageBox.Show("Create a new patient first.", "Cannot Add Medication", MessageBoxButton.OK);
+                return;
+            }
             Medication newMed = new Medication();
             SelectedPatient.MedicationRx.Add(newMed);
             MedTab.SelectedPatient = getPMeds(Patients[SelectedIndex]);
@@ -244,6 +261,8 @@ namespace PatientMVVM
                         _repo.DeleteCurrentPatient(patientToDelete);
                         Patients.Remove(patientToDelete);
                         SelectedIndex = 0;
+                        if(Patients.Count == 0)
+                            SelectedPatient = emptyPatient;
                         break;
                     case MessageBoxResult.No:
                         break;
@@ -278,6 +297,12 @@ namespace PatientMVVM
             RiskTab = new RiskViewModel(_selectedPatient);
             if(_selectedPatient != null)
             MedTab = new MedsViewModel(getPMeds(_selectedPatient), _repo);
+            else
+            {
+                emptyPatient.MedicationRx = new List<Medication>();
+                MedTab = new MedsViewModel(emptyPatient, _repo);
+
+            }
             Patients = new ObservableCollection<Patient>(testData);
         }
     }
