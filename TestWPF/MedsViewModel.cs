@@ -57,6 +57,36 @@ namespace PatientMVVM
             }
         }
 
+        private int _selectedMedIndex;
+        public int SelectedMedIndex
+        {
+            get
+            {
+                return _selectedMedIndex;
+            }
+            set
+            {
+                _selectedMedIndex = value;
+                if(_selectedMedIndex >= 0)
+                SelectedMedication = Medication[value];
+                RaisePropertyChangedEvent("SelectedMedIndex");
+            }
+        }
+
+        private Medication _selectedMedication;
+        public Medication SelectedMedication
+        {
+            get
+            {
+                return _selectedMedication;
+            }
+            set
+            {
+                _selectedMedication = value;
+                RaisePropertyChangedEvent("SelectedMedication");
+            }
+        }
+
         public void NewClick()
         {
             

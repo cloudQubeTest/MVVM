@@ -34,6 +34,12 @@ namespace PatientsDataModel
             Save();
         }
 
+        public void DeleteCurrentMedication(Medication medication)
+        {
+            _context.Medications.Remove(medication);
+            Save();
+        }
+
 
         public ObservableCollection<Patient> PatientsInMemory()
         {

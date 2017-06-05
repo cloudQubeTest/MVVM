@@ -20,6 +20,7 @@ namespace PatientMVVM
         List<Patient> testData;
 
         Patient emptyPatient = new Patient();
+        Medication emptyMedication = new Medication();
 
         private ObservableCollection<Patient> _patients;
 
@@ -273,6 +274,39 @@ namespace PatientMVVM
         public ICommand DeleteClickCommand
         {
             get { return new DelegateCommand(DeletePatientClick); }
+        }
+
+        private void DeleteMedicationClick()
+        {
+            if (SelectedPatient == null || SelectedPatient.MedicationRx.Count == 0)
+                MessageBox.Show("No Medication to delete.", "Cannot Delete", MessageBoxButton.OK);
+            else
+            {
+                switch (MessageBox.Show("Delete Selected Medication?", "Medication Entry", MessageBoxButton.YesNo))
+                {
+                    case MessageBoxResult.Yes:
+                        var medicationToDelete = MedTab.SelectedMedication;
+                        //if (SelectedIndex == 0)
+                        //    if(Patients.Count == 1)
+                        //    SelectedIndex++;
+                        //else
+                        //SelectedIndex = 0;
+                        _repo.DeleteCurrentMedication(medicationToDelete);
+                        //MedTab.Medication.Remove(medicationToDelete);
+                        SelectedPatient.MedicationRx.Remove(medicationToDelete);
+                        MedTab.SelectedMedIndex = 0;
+                        if (MedTab.Medication.Count == 0)
+                            MedTab.SelectedMedication = emptyMedication;
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
+            }
+        }
+
+        public ICommand DeleteMedCommand
+        {
+            get { return new DelegateCommand(DeleteMedicationClick); }
         }
 
 
