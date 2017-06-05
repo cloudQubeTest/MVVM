@@ -2,6 +2,7 @@
 using PatientsDataModel;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PatientMVVM
 {
@@ -18,6 +19,7 @@ namespace PatientMVVM
             List<Medication> MedList = new List<Medication>(SelectedPatient.MedicationRx);
             _medication = new ObservableCollection<Medication>(MedList);
             this._repo = repo;
+            SelectedMedication = Medication.FirstOrDefault();
         }
 
 
@@ -67,7 +69,7 @@ namespace PatientMVVM
             set
             {
                 _selectedMedIndex = value;
-                if(_selectedMedIndex >= 0)
+                if(_selectedMedIndex >= 0 && Medication.Count != 0)
                 SelectedMedication = Medication[value];
                 RaisePropertyChangedEvent("SelectedMedIndex");
             }

@@ -62,6 +62,7 @@ namespace PatientMVVM
                         else
                         MedTab.SelectedPatient = getPMeds(Patients[value]); //TODO fix this
                                                                             //ImageTab = new ImageViewModel(SelectedPatient);
+                    MedTab.SelectedMedIndex = 0;
                 }
                 else
                 {
@@ -235,6 +236,8 @@ namespace PatientMVVM
             Medication newMed = new Medication();
             SelectedPatient.MedicationRx.Add(newMed);
             MedTab.SelectedPatient = getPMeds(Patients[SelectedIndex]);
+            SaveClick();
+            MedTab.SelectedMedIndex = (MedTab.Medication.Count - 1);
 
         }
 
@@ -294,6 +297,7 @@ namespace PatientMVVM
                         _repo.DeleteCurrentMedication(medicationToDelete);
                         //MedTab.Medication.Remove(medicationToDelete);
                         SelectedPatient.MedicationRx.Remove(medicationToDelete);
+                        MedTab.Medication.Remove(medicationToDelete);
                         MedTab.SelectedMedIndex = 0;
                         if (MedTab.Medication.Count == 0)
                             MedTab.SelectedMedication = emptyMedication;
