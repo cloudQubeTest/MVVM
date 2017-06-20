@@ -13,6 +13,7 @@ namespace PatientMVVM
 {
     public class MainViewModel : ObservableObject
     {
+        static int MED_TAB = 1;
         private readonly ConnectedRepository _repo = new ConnectedRepository();
 
         //Patient John1 = new Patient();
@@ -141,6 +142,35 @@ namespace PatientMVVM
             return _repo.GetPatientWithMedication(patient.Id);
         }
 
+        private int _selectedTabIndex;
+        public int SelectedTabIndex
+        {
+            get
+            {
+                //System.Console.WriteLine("Returning tab index: " + _selectedTabIndex);
+                return _selectedTabIndex;
+            }
+            set
+            {
+                _selectedTabIndex = value;
+                IsMedTab = (SelectedTabIndex == MED_TAB);
+                RaisePropertyChangedEvent("SelectedTabIndex");
+            }
+        }
+
+        private bool _isMedTab;
+        public bool IsMedTab
+        {
+            get
+            {
+                return _isMedTab;
+            }
+            set
+            {
+                _isMedTab = value;
+                RaisePropertyChangedEvent("IsMedTab");
+            }
+        }
 
         //private string _firstName;
         //public string FirstName
