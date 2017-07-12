@@ -111,7 +111,7 @@ namespace PatientMVVM
             }
             else
             {
-                bitmap = new Bitmap(@"C:\Users\Colin\Documents\Projects\TestWPF\TestWPF\blank.png");
+                bitmap = new Bitmap(@"../../blank.png");
             }
             ImageSource = ImageConversion.BitmapToBitmapSource(bitmap);
         }

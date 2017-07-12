@@ -74,7 +74,7 @@ namespace PatientsDataModel
 
 
 
-#if false
+#if true
   //Quick way to initialize and seed the database on first use.
     public ConnectedRepository() {
       DataHelpers.NewDbWithSeed();
