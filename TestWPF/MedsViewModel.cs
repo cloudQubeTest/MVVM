@@ -10,11 +10,9 @@ namespace PatientMVVM
     {
         private readonly ConnectedRepository _repo;
 
-        //Medication emptyMed = new Medication();
         List<Medication> emptyMedList = new List<Medication>();
         public MedsViewModel(Patient selectedPatient, ConnectedRepository repo)
         {
-            //_selectedPatient = new Patient();
             _selectedPatient = selectedPatient;
             List<Medication> MedList = new List<Medication>(SelectedPatient.MedicationRx);
             _medication = new ObservableCollection<Medication>(MedList);
@@ -42,14 +40,13 @@ namespace PatientMVVM
             }
         }
 
-       //private ObservableCollection<Medication> _medication = new ObservableCollection<Medication>();
        private ObservableCollection<Medication> _medication;
         public ObservableCollection<Medication> Medication
         {
             get
             {
 
-                    return _medication; //TODO broken
+                    return _medication; 
             }
             set
             {

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 using System.Drawing.Imaging;
 
@@ -30,8 +27,7 @@ namespace PatientsDataModel
 
         public static void NewDbWithSeed()
         {
-
-            Database.SetInitializer(new DropCreateDatabaseAlways<PatientContext>());
+            Database.SetInitializer(new CreateDatabaseIfNotExists<PatientContext>());
             using (var context = new PatientContext())
             {
                 if (context.Patients.Any())

@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
-using PatientsDataModel;
 
 namespace PatientsDataModel
 {
@@ -67,8 +65,6 @@ namespace PatientsDataModel
         public Medication NewMedication()
         {
             var medication = new Medication();
-            //medication.Patient = patient;
-            //_context.Medications.Add(medication);
             return medication;
         }
 
@@ -77,11 +73,11 @@ namespace PatientsDataModel
 #if true
   //Quick way to initialize and seed the database on first use.
     public ConnectedRepository() {
-      DataHelpers.NewDbWithSeed();
+                DataHelpers.NewDbWithSeed();
         }
 #endif
+        //Quick way to wipe DB if set to true, set the above block to false
 #if false
-        //Quick way to wipe DB
         public ConnectedRepository()
         {
             DataHelpers.removeDB();

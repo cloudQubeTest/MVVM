@@ -80,7 +80,6 @@
       <DependentUpon>MedsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MedsViewModel.cs" />
-    <Compile Include="Model.cs" />
     <Compile Include="ObservableObject.cs" />
     <Compile Include="RisksView.xaml.cs">
       <DependentUpon>RisksView.xaml</DependentUpon>

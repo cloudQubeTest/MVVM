@@ -79,8 +79,6 @@ namespace PatientMVVM
                 ImageSource = ImageConversion.BitmapToBitmapSource(bitmap);
             }
         }
-        //TODO: Remove lines 54 and 55 and place into own method to see if pictures will change
-
   
         public BitmapSource ImageSource
         {
@@ -94,13 +92,6 @@ namespace PatientMVVM
                 RaisePropertyChangedEvent("ImageSource");
             }
         }
-
-        //TODO: make private and use InotifyPropertyChanged
-
-        //public string DisplayedImage
-        //{
-        //    get { return @"C:\Users\Colin\Documents\Projects\TestWPF\TestWPF\Test.png"; }
-        //}
 
         public void updateImage()
         {
@@ -154,7 +145,6 @@ namespace PatientMVVM
         {
             if (SelectedPatient.Image != null)
             {
-                //Bitmap bpm = new Bitmap(ImageConversion.BitmapSourceToBitmap(_bitmapSource));
                 FormatConvertedBitmap grayscaleBpm = new FormatConvertedBitmap(_bitmapSource, PixelFormats.Gray8, BitmapPalettes.Gray256, 0.0);
                 Bitmap editBpm = new Bitmap(ImageConversion.BitmapSourceToBitmap(grayscaleBpm));
                 ImageSource = grayscaleBpm;
@@ -168,10 +158,6 @@ namespace PatientMVVM
             get { return new DelegateCommand(GrayscaleClick); }
         }
 
-        //private WriteableBitmap ChangeBrightness(WriteableBitmap source, byte change_value)
-        //{
-
-        //}
 
     }
 }
